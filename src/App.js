@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Conditional from './Conditional';
 
-function App() {
-  return (
-    <div className="App">
-      Hello 
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: true
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        loading: false
+      });
+    }, 3500);
+  }
+
+  render() {
+    return <Conditional loading={this.state.loading} />;
+  }
 }
 
 export default App;
