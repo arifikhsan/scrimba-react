@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   render() {
-    return <Conditional loading={this.state.loading} />;
+    return this.state.loading ? <h1>Loading...</h1> : <Conditional />;
   }
 }
 
