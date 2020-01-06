@@ -4,20 +4,24 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      loading: false,
       character: {}
     };
   }
   componentDidMount() {
+    this.setState({ loading: true });
     fetch('https://swapi.co/api/people/1/?format=json')
       .then(response => response.json())
       .then(data => {
         this.setState({
-          character: data
+          character: data,
+          loading: false
         });
       });
   }
   render() {
-    return <div>{this.state.character.name}</div>;
+    const text = this.state.loading ? 'loading...' : this.state.character.name;
+    return <div>{text}</div>;
   }
 }
 
