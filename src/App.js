@@ -8,6 +8,7 @@ class App extends Component {
       character: {}
     };
   }
+  
   componentDidMount() {
     this.setState({ loading: true });
     fetch('https://swapi.co/api/people/1/?format=json')
@@ -19,6 +20,7 @@ class App extends Component {
         });
       });
   }
+
   render() {
     const text = this.state.loading ? 'loading...' : this.state.character.name;
     return <div>{text}</div>;
