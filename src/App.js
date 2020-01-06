@@ -11,18 +11,21 @@ class App extends Component {
   }
 
   handleClick() {
-    this.setState({
-      isLoggedIn: !this.state.isLoggedIn
+    this.setState(previousState => {
+      return {
+        isLoggedIn: !previousState.isLoggedIn
+      };
     });
   }
 
   render() {
+    let headingText = this.state.isLoggedIn ? 'Logged In' : 'Logged Out';
+    let buttonText = this.state.isLoggedIn ? 'Let me out' : 'Let me in';
+    
     return (
       <div>
-        <h1>{this.state.isLoggedIn ? 'Logged In' : 'Logged Out'}</h1>{' '}
-        <button onClick={this.handleClick}>
-          {this.state.isLoggedIn ? 'Let me out' : 'Let me in'}
-        </button>
+        <h1>{headingText}</h1>
+        <button onClick={this.handleClick}>{buttonText}</button>
       </div>
     );
   }
