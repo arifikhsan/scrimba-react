@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.submitHandler}>
           <input
             type='text'
             placeholder='firstname'
@@ -90,6 +90,7 @@ class App extends Component {
           </h1>
           <h2>You are a {this.state.gender}</h2>
           <h2>Your favorite color is {this.state.favColor}</h2>
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
