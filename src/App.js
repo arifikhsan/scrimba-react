@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: ''
-    };
+  state = {
+    name: 'Arif Ikhsanudin'
   }
 
   handleChange = event => {
@@ -22,8 +19,8 @@ class App extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         />
-        <br/>
-        {this.state.name}
+        <br />
+        <h1>{this.state.name}</h1>
       </div>
     );
   }
